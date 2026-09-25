@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#070a10"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#070a10">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Balkan Drive Radio V2</title>
 <style>
 :root{--bg:#070a10;--panel:#111722;--panel2:#182130;--line:#2b3749;--txt:#f7f9fc;--muted:#9ba9ba;--cyan:#2dc8ff;--green:#43e17d;--yellow:#ffd64d;--red:#ff6069;--master:70%}
@@ -17,16 +19,19 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:11px
 nav{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,100%);height:62px;padding-bottom:env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(4,1fr);background:#070a10;border-top:1px solid var(--line)}nav button{border:0;background:transparent;color:#748196;font-size:10px;font-weight:900}nav button span{display:block;font-size:21px}nav .active{color:var(--cyan)}
 .page{display:none}.page.active{display:block}.settings{padding:11px 12px 210px;min-height:100vh}.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:14px;margin-bottom:10px}.card h3{margin:0 0 6px}.card p{margin:0 0 11px;color:var(--muted);font-size:14px;line-height:1.35}.row{display:flex;align-items:center;gap:10px}.row strong{flex:1}.switch{width:56px;height:32px;border:0;border-radius:99px;background:#354050;padding:3px}.switch i{display:block;width:26px;height:26px;background:white;border-radius:50%;transition:.2s}.switch.on{background:#24c770}.switch.on i{transform:translateX(24px)}.correction{display:grid;grid-template-columns:1fr 42px 42px 54px;gap:7px;align-items:center;padding:9px 0;border-top:1px solid #293447}.correction b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.correction button{height:38px;border:1px solid #425066;background:#202a39;color:white;border-radius:11px;font-weight:900}.correction output{text-align:right;color:#84ddff;font-size:13px;font-weight:900}
 .modal{display:none;position:fixed;inset:0;z-index:90;background:#000c;align-items:flex-end;justify-content:center}.modal.open{display:flex}.sheet{width:min(560px,100%);max-height:88vh;overflow:auto;background:#141b27;border:1px solid #354257;border-radius:24px 24px 0 0;padding:17px 14px calc(18px + env(safe-area-inset-bottom))}.sheet h2{margin:0 0 5px}.sheet p{margin:0 0 12px;color:var(--muted)}.drive-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.drive-grid button{min-height:78px;border:1px solid var(--line);border-radius:17px;background:#202a39;color:white;font-size:17px;font-weight:900}.close{width:100%;height:50px;margin-top:12px;border:0;border-radius:15px;background:#344050;color:white;font-weight:900}.note{margin:10px 12px 0;padding:11px 13px;background:#111923;border:1px solid #28384c;border-radius:14px;color:#9fadc0;font-size:12px;line-height:1.4}
-.trackbox{margin:0 12px 10px;padding:13px 14px;border:1px solid #304158;border-radius:16px;background:#111a27}.tracklabel{font-size:11px;letter-spacing:.12em;color:#69f49b;font-weight:900}.trackartist{font-size:20px;font-weight:900;margin-top:5px}.tracktitle{font-size:16px;color:#c6d1df;margin-top:3px}.trackstatus{font-size:11px;color:#738298;margin-top:6px}</style>
+
+/* Version 4 */
+.app{padding-bottom:170px}.brand small{display:block;margin-top:3px;color:#8ea0b5;font-weight:800}.v4player{bottom:0;min-height:154px;padding:16px 18px calc(16px + env(safe-area-inset-bottom));border-top:1px solid #3a485e}.v4now{display:grid;grid-template-columns:1fr 66px;gap:14px;align-items:center}.v4text{min-width:0}.v4text>b{display:block;font-size:23px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4artist{font-size:17px;font-weight:850;color:#fff;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4title{font-size:15px;color:#b8c4d3;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4text small{display:block;color:#67ee99;font-size:13px;font-weight:900;margin-top:9px}.v4play{width:66px;height:66px;font-size:25px}.titleBlockRemoved{display:none!important}.settings{display:none!important}.station{min-height:84px}.note{margin-bottom:16px}
+</style>
 </head>
 <body><audio id="audioPlayer" preload="none" playsinline></audio>
 <div class="app">
-<header><div class="logo"></div><div class="brand"><b>Balkan Drive Radio</b><small>Ein Tipp, sofort hören</small></div><div class="status">🚘 FAHRMODUS</div></header>
+<header><div class="logo"></div><div class="brand"><b>Balkan Drive Radio</b><small>Version 4.0 · Ein Tipp, sofort hören</small></div><div class="status">🚘 FAHRMODUS</div></header>
 
 <section id="radioPage" class="page active">
 <div class="toolbar"><button id="favoriteFilter" class="active">★ Favoriten</button><button id="openDrive">🚗 Große Auswahl</button></div>
 <div class="search-wrap"><input id="search" class="search" placeholder="Sender suchen …"></div>
-<div class="title"><b>MEINE SENDER</b><span id="stationCount">8 Sender</span></div><div class="trackbox"><div class="tracklabel">♫ LÄUFT GERADE</div><div id="trackArtist" class="trackartist">Noch kein Sender</div><div id="trackTitle" class="tracktitle">Sender auswählen</div><div id="trackStatus" class="trackstatus">Automatische Aktualisierung alle 20 Sekunden</div></div>
+<div class="title"><b>MEINE SENDER</b><span id="stationCount">8 Sender</span></div>
 <div id="stationList" class="list">
 <button class="station" data-id="sehara" data-name="Radio Sehara" data-meta="narodna · BiH" data-short="SEH" data-stream="https://sehara.name.ba/;"><span class="station-logo">SEH</span><span><span class="station-name">Radio Sehara</span><span class="station-meta">narodna · BiH</span></span><span class="station-play">▶</span></button>
 <button class="station" data-id="cool" data-name="Cool Radio" data-meta="narodna · Srbija" data-short="COOL" data-stream="https://live.coolradio.rs/cool128"><span class="station-logo">COOL</span><span><span class="station-name">Cool Radio</span><span class="station-meta">narodna · Srbija</span></span><span class="station-play">▶</span></button>
@@ -37,7 +42,7 @@ nav{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width
 <button class="station" data-id="extra" data-name="Radio Extra FM" data-meta="narodna, zabavna · Hrvatska" data-short="EX"><span class="station-logo">EX</span><span><span class="station-name">Radio Extra FM</span><span class="station-meta">narodna, zabavna · Hrvatska</span></span><span class="station-play">▶</span></button>
 <button class="station" data-id="ritam" data-name="Radio Ritam Srca" data-meta="narodna · Ex-YU" data-short="RS"><span class="station-logo">RS</span><span><span class="station-name">Radio Ritam Srca</span><span class="station-meta">narodna · Ex-YU</span></span><span class="station-play">▶</span></button>
 </div>
-<div class="note">Klickbarer Prototyp ohne echte Streams. Die Sender stehen fest im HTML und sollten deshalb auch in der iPhone-Dateivorschau sichtbar sein.</div>
+<div class="note">Version 4.0 · Einfacher Player ohne untere Menüleiste. Titel und Interpret erscheinen nur, wenn echte Metadaten verfügbar sind.</div>
 </section>
 
 <section id="settingsPage" class="page settings">
@@ -48,25 +53,45 @@ nav{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width
 </section>
 </div>
 
-<div class="player">
-<div class="player-top"><div class="now"><b id="nowName">Noch kein Sender</b><small id="nowStatus">Sender antippen</small></div><button id="playPause" class="circle">▶</button><button id="favoriteCurrent" class="circle fav">♡</button></div>
-<div class="volume-row"><span>🔈</span><input id="masterVolume" type="range" min="0" max="100" value="70"><output id="masterOut">70 %</output></div>
-<div id="duckMessage" class="duckmsg">🗺️ Navigation spricht: Radio auf 5 % abgesenkt</div>
+<div class="player v4player">
+  <div class="v4now">
+    <div class="v4text"><b id="nowName">Noch kein Sender</b><div id="trackArtist" class="v4artist"></div><div id="trackTitle" class="v4title">Sender auswählen</div><small id="nowStatus">Bereit</small></div>
+    <button id="playPause" class="circle v4play">▶</button>
+  </div>
 </div>
-<nav><button id="radioNav" class="active"><span>📻</span>Radio</button><button id="favNav"><span>★</span>Favoriten</button><button id="testDuck"><span>🗺️</span>Ansage testen</button><button id="settingsNav"><span>⚙️</span>Einstellungen</button></nav>
 <div id="driveModal" class="modal"><div class="sheet"><h2>🚗 Große Senderauswahl</h2><p>Ein Tipp startet den Sender sofort.</p><div id="driveGrid" class="drive-grid"></div><button id="closeDrive" class="close">Schließen</button></div></div>
-<script>(function(){
-var B=[].slice.call(document.querySelectorAll('.station')),A=document.getElementById('audioPlayer'),C=null,P=false,F=true,M=document.getElementById('masterVolume'),SM=document.getElementById('settingsVolume'),timer=null;
-var S={sehara:'https://sehara.name.ba/currentsong?sid=1',ok:'https://sslstream.okradio.net/currentsong?sid=1'};
-function status(x){document.getElementById('nowStatus').textContent=x}function track(raw,src){raw=(raw||'').replace(/<[^>]+>/g,'').trim();var p=raw.split(/\s+-\s+/),ar=p.length>1?p.shift():(C?C.dataset.name:'Live Radio'),ti=p.length?p.join(' - '):(raw||'Live-Programm');document.getElementById('trackArtist').textContent=ar;document.getElementById('trackTitle').textContent=ti;document.getElementById('trackStatus').textContent=src;if('mediaSession'in navigator)try{navigator.mediaSession.metadata=new MediaMetadata({artist:ar,title:ti,album:C.dataset.name,artwork:[{src:'icon-512.png',sizes:'512x512'}]})}catch(e){}}
-async function metadata(){if(!C)return;var u=S[C.dataset.id];if(!u){track(C.dataset.name+' - Live-Programm','Dieser Sender liefert derzeit keine auslesbaren Web-Metadaten');return}var urls=[u,'https://api.allorigins.win/raw?url='+encodeURIComponent(u)];for(var i=0;i<urls.length;i++)try{var r=await fetch(urls[i],{cache:'no-store'});if(r.ok){var t=(await r.text()).trim();if(t&&t.length<250&&!/html/i.test(t)){track(t,'Live-Metadaten');return}}}catch(e){}track(C.dataset.name+' - Live-Programm','Metadaten momentan nicht erreichbar')}
-function startMeta(){clearInterval(timer);metadata();timer=setInterval(metadata,20000)}
-function select(b){C=b;document.getElementById('trackArtist').textContent=b.dataset.name;document.getElementById('trackTitle').textContent='Stream wird geladen …';if(!b.dataset.stream){A.pause();status('Stream noch nicht hinterlegt');update();return}A.src=b.dataset.stream;A.play().catch(()=>status('Stream konnte nicht gestartet werden'));update()}
-B.forEach(b=>b.onclick=()=>C===b?(A.paused?A.play():A.pause()):select(b));A.onplaying=()=>{P=true;status('LIVE · Radio läuft');update();startMeta()};A.onpause=()=>{P=false;update()};A.onwaiting=()=>status('Stream wird geladen …');A.onerror=()=>status('Streamfehler');
-function update(){B.forEach(b=>{var on=b===C&&P;b.classList.toggle('playing',on);b.querySelector('.station-play').textContent=on?'Ⅱ':'▶'});document.getElementById('nowName').textContent=C?C.dataset.name:'Noch kein Sender';document.getElementById('playPause').textContent=P?'Ⅱ':'▶';drive()}
-document.getElementById('playPause').onclick=()=>{if(!C)select(B[0]);else A.paused?A.play():A.pause()};function vol(v){M.value=SM.value=v;document.getElementById('masterOut').textContent=document.getElementById('settingsVolumeOut').textContent=v+' %';try{A.volume=v/100}catch(e){}}M.oninput=function(){vol(this.value)};SM.oninput=function(){vol(this.value)};
-var Q=document.getElementById('search');Q.oninput=function(){var q=this.value.toLowerCase(),n=0;B.forEach(b=>{var x=b.dataset.name.toLowerCase().includes(q);b.style.display=x?'grid':'none';if(x)n++});document.getElementById('stationCount').textContent=n+' Sender'};
-function page(x){document.getElementById('radioPage').style.display=x==='r'?'block':'none';document.getElementById('settingsPage').style.display=x==='s'?'block':'none'}document.getElementById('radioNav').onclick=()=>page('r');document.getElementById('settingsNav').onclick=()=>page('s');document.getElementById('favNav').onclick=()=>page('r');document.getElementById('testDuck').onclick=()=>{var old=A.volume;try{A.volume=.05}catch(e){}setTimeout(()=>A.volume=old,3000)};
-function drive(){var g=document.getElementById('driveGrid');g.innerHTML='';B.forEach(b=>{var x=document.createElement('button');x.textContent=(b===C&&P?'Ⅱ ':'▶ ')+b.dataset.name;x.onclick=()=>{select(b);document.getElementById('driveModal').classList.remove('open')};g.appendChild(x)})}document.getElementById('openDrive').onclick=()=>{drive();document.getElementById('driveModal').classList.add('open')};document.getElementById('closeDrive').onclick=()=>document.getElementById('driveModal').classList.remove('open');
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');vol(70);drive();update();})();</script>
+<script>
+(function(){
+'use strict';
+var stations=Array.prototype.slice.call(document.querySelectorAll('.station'));
+var audio=document.getElementById('audioPlayer');
+var current=null,playing=false;
+var metaTimer=null;
+var metadataEndpoints={
+ sehara:['https://sehara.name.ba/currentsong?sid=1','https://sehara.name.ba/7.html'],
+ ok:['https://sslstream.okradio.net/currentsong?sid=1','https://sslstream.okradio.net/7.html']
+};
+function el(id){return document.getElementById(id)}
+function clean(x){return (x||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim()}
+function showFallback(){el('trackArtist').textContent='';el('trackTitle').textContent='';el('nowStatus').textContent=playing?'LIVE · Radio läuft':'Wiedergabe pausiert'}
+function showTrack(raw){raw=clean(raw).replace(/^.*?StreamTitle=['\"]?/i,'').replace(/['\";].*$/,'').trim();if(!raw||raw.length>220||/doctype|html/i.test(raw)){showFallback();return}var parts=raw.split(/\s+-\s+/);if(parts.length>1){el('trackArtist').textContent=parts.shift();el('trackTitle').textContent=parts.join(' - ')}else{el('trackArtist').textContent='';el('trackTitle').textContent=raw}el('nowStatus').textContent='LIVE · Radio läuft';if('mediaSession' in navigator)try{navigator.mediaSession.metadata=new MediaMetadata({artist:el('trackArtist').textContent,title:el('trackTitle').textContent||current.dataset.name,album:current.dataset.name,artwork:[{src:'icon-512.png',sizes:'512x512',type:'image/png'}]})}catch(e){}}
+async function getText(url){var r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(r.status);return r.text()}
+async function refreshMeta(){if(!current||!playing)return;var urls=metadataEndpoints[current.dataset.id]||[];for(var i=0;i<urls.length;i++){var attempts=[urls[i],'https://api.allorigins.win/raw?url='+encodeURIComponent(urls[i])];for(var j=0;j<attempts.length;j++)try{var text=await getText(attempts[j]);text=clean(text);if(text&&text.length<220&&!/doctype|html/i.test(text)){showTrack(text);return}}catch(e){}}showFallback()}
+function startMeta(){clearInterval(metaTimer);refreshMeta();metaTimer=setInterval(refreshMeta,20000)}
+function updateUI(){stations.forEach(function(b){var on=b===current&&playing;b.classList.toggle('playing',on);b.querySelector('.station-play').textContent=on?'Ⅱ':'▶'});el('nowName').textContent=current?current.dataset.name:'Noch kein Sender';el('playPause').textContent=playing?'Ⅱ':'▶';if(!playing)showFallback();renderDrive()}
+function selectStation(btn){if(current===btn){audio.paused?audio.play().catch(streamFail):audio.pause();return}current=btn;el('nowName').textContent=btn.dataset.name;el('trackArtist').textContent='';el('trackTitle').textContent='Stream wird geladen …';el('nowStatus').textContent='VERBINDUNG';if(!btn.dataset.stream){audio.pause();audio.removeAttribute('src');playing=false;updateUI();el('trackTitle').textContent='Stream noch nicht verfügbar';el('nowStatus').textContent='NICHT VERFÜGBAR';return}audio.src=btn.dataset.stream;audio.play().catch(streamFail);updateUI()}
+function streamFail(){playing=false;updateUI();el('trackTitle').textContent='Stream konnte nicht gestartet werden';el('nowStatus').textContent='FEHLER'}
+stations.forEach(function(b){b.onclick=function(){selectStation(b)}});
+audio.onplaying=function(){playing=true;updateUI();showFallback();startMeta()};audio.onpause=function(){playing=false;updateUI()};audio.onwaiting=function(){el('trackTitle').textContent='Stream wird geladen …';el('nowStatus').textContent='VERBINDUNG'};audio.onerror=streamFail;
+el('playPause').onclick=function(){if(!current)selectStation(stations[0]);else audio.paused?audio.play().catch(streamFail):audio.pause()};
+var search=el('search');search.oninput=function(){var q=this.value.toLowerCase(),n=0;stations.forEach(function(b){var show=b.dataset.name.toLowerCase().indexOf(q)>-1;b.style.display=show?'grid':'none';if(show)n++});el('stationCount').textContent=n+' Sender'};
+// Keep top Favoriten as a harmless filter label for now; display all stations.
+var fav=el('favoriteFilter');if(fav){fav.textContent='★ Meine Sender';fav.onclick=function(){search.focus()}}
+function renderDrive(){var g=el('driveGrid');if(!g)return;g.innerHTML='';stations.forEach(function(b){var x=document.createElement('button');x.textContent=(b===current&&playing?'Ⅱ ':'▶ ')+b.dataset.name;x.onclick=function(){selectStation(b);el('driveModal').classList.remove('open')};g.appendChild(x)})}
+el('openDrive').onclick=function(){renderDrive();el('driveModal').classList.add('open')};el('closeDrive').onclick=function(){el('driveModal').classList.remove('open')};
+if('mediaSession'in navigator){try{navigator.mediaSession.setActionHandler('play',function(){audio.play()});navigator.mediaSession.setActionHandler('pause',function(){audio.pause()})}catch(e){}}
+if('serviceWorker'in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js')});
+renderDrive();updateUI();
+})();
+</script>
 </body></html>
