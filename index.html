@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Balkan Radio">
-<title>Balkan Drive Radio V5</title>
+<title>Balkan Drive Radio V5.1</title>
 <style>
 :root{--bg:#070a10;--panel:#111824;--panel2:#172231;--line:#2b394d;--text:#f7f9fc;--muted:#91a0b3;--cyan:#2dc8ff;--green:#5af095;--player:166px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -17,7 +17,7 @@ html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-sys
 body{min-height:100vh;overscroll-behavior:none}button,input{font:inherit}button{touch-action:manipulation}
 .app{max-width:560px;min-height:100vh;margin:auto;padding-bottom:calc(var(--player) + env(safe-area-inset-bottom));background:linear-gradient(180deg,#0c111a,#070a10 44%)}
 header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:11px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:#080c13f2;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.logo{width:44px;height:44px;border-radius:14px;background:conic-gradient(#f44,#fd5,#5e8,#38f,#b5f,#f44);display:grid;place-items:center;box-shadow:0 0 20px #2dc8ff22}.logo:after{content:'▶';width:30px;height:30px;border-radius:10px;background:#080b11;display:grid;place-items:center;font-size:14px}
+.logo{width:44px;height:44px;border-radius:14px;background:url('icon-192.png') center/cover no-repeat;box-shadow:0 0 20px #ff202055}.logo:after{content:none}
 .brand{min-width:0}.brand b{display:block;font-size:19px;line-height:1.05}.brand small{display:block;margin-top:4px;color:#91a4bb;font-size:12px;font-weight:800}.live-pill{margin-left:auto;border:1px solid #2b7650;background:#123822;color:#79ffad;padding:7px 9px;border-radius:99px;font-size:11px;font-weight:900}
 .controls{padding:11px 12px 8px;display:grid;grid-template-columns:1fr auto;gap:9px}.search{height:48px;border:1px solid var(--line);border-radius:15px;background:#111823;color:white;padding:0 15px;font-size:17px;outline:none}.count{min-width:68px;border:1px solid var(--line);border-radius:15px;background:var(--panel);display:grid;place-items:center;color:#9fb0c4;font-size:12px;font-weight:900}
 .list{padding:0 11px}.station{width:100%;min-height:84px;margin-bottom:9px;padding:9px 10px;display:grid;grid-template-columns:54px 1fr 46px;gap:12px;align-items:center;text-align:left;color:white;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#17202d,#0f151e);box-shadow:0 8px 22px #0004}.station:active{transform:scale(.985)}.station.playing{border-color:var(--cyan);box-shadow:0 0 0 2px #28c8ff22,0 8px 22px #0005}
@@ -32,7 +32,7 @@ header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:11px
 <body>
 <audio id="audio" preload="none" playsinline></audio>
 <div class="app">
-<header><div class="logo"></div><div class="brand"><b>Balkan Drive Radio</b><small>Version 5.0 · 16 Sender</small></div><div class="live-pill">● LIVE</div></header>
+<header><div class="logo app-icon"></div><div class="brand"><b>Balkan Drive Radio</b><small>Version 5.1 · 16 Sender</small></div><div class="live-pill">● LIVE</div></header>
 <div class="controls"><input id="search" class="search" placeholder="Sender suchen …" autocomplete="off"><div id="count" class="count">16</div></div>
 <div id="list" class="list"><button class="station" data-id="sehara" data-name="Radio Sehara" data-stream="https://sehara.name.ba/;">
   <span class="station-logo">SEH</span>
