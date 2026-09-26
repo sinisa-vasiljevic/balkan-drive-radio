@@ -1,20 +1,20 @@
 {
-  "id": "/balkan-drive-radio/",
+  "id": "./?app=balkan-drive-radio-v53",
   "name": "Balkan Drive Radio",
   "short_name": "Balkan Radio",
-  "start_url": "/balkan-drive-radio/?source=pwa",
-  "scope": "/balkan-drive-radio/",
+  "start_url": "./?app=balkan-drive-radio-v53",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#070a10",
   "theme_color": "#070a10",
   "icons": [
     {
-      "src": "/balkan-drive-radio/icon-192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/balkan-drive-radio/icon-512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

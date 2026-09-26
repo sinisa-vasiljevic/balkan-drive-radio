@@ -1,1 +1,1 @@
-Version 5.2 mit festem Scope /balkan-drive-radio/. Alle Dateien im Repository ersetzen. Danach die alte PWA löschen und neu installieren.
+Version 5.3 stellt das Layout der V5.1 wieder her und korrigiert die Player-Anzeige. Hinweis: Das Antippen der iOS-Medienkarte kann bei PWAs nicht zuverlässig an eine bestimmte PWA gebunden werden.
