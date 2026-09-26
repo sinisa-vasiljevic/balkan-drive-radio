@@ -4,94 +4,161 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#070a10">
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Balkan Drive Radio V2</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Balkan Radio">
+<title>Balkan Drive Radio V5</title>
 <style>
-:root{--bg:#070a10;--panel:#111722;--panel2:#182130;--line:#2b3749;--txt:#f7f9fc;--muted:#9ba9ba;--cyan:#2dc8ff;--green:#43e17d;--yellow:#ffd64d;--red:#ff6069;--master:70%}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}.app{max-width:560px;min-height:100vh;margin:auto;padding-bottom:176px;background:linear-gradient(180deg,#0c111a,#070a10 42%)}
-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:11px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:#080c13f2;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.logo{width:42px;height:42px;border-radius:13px;background:conic-gradient(#f44,#fd5,#5e8,#38f,#b5f,#f44);display:grid;place-items:center}.logo:after{content:'▶';width:29px;height:29px;border-radius:9px;background:#080b11;display:grid;place-items:center;font-size:14px}.brand{min-width:0}.brand b{font-size:19px;display:block}.brand small{color:var(--muted)}.status{margin-left:auto;border:1px solid #2b7650;background:#123822;color:#79ffad;padding:7px 9px;border-radius:99px;font-size:11px;font-weight:900}
-.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:10px 12px}.toolbar button{height:48px;border-radius:15px;border:1px solid var(--line);background:var(--panel);color:white;font-weight:900}.toolbar .active{border-color:var(--cyan);color:#7edfff;background:#0d2b38}.search-wrap{padding:0 12px 10px}.search{width:100%;height:46px;border:1px solid var(--line);border-radius:15px;background:#111823;color:white;padding:0 15px;font-size:17px;outline:none}.search:focus{border-color:var(--cyan)}
-.title{display:flex;align-items:center;padding:7px 15px 8px}.title b{font-size:13px;letter-spacing:.13em;color:#aab7c8}.title span{margin-left:auto;color:#77869a;font-size:12px}
-.list{padding:0 11px}.station{width:100%;min-height:84px;margin-bottom:9px;padding:9px 10px;display:grid;grid-template-columns:54px 1fr 46px;gap:12px;align-items:center;text-align:left;color:white;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#17202d,#0f151e);box-shadow:0 8px 22px #0004}.station:active{transform:scale(.985)}.station.playing{border-color:var(--cyan);box-shadow:0 0 0 2px #28c8ff22}.station-logo{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(140deg,#27c8ff,#57e990);color:#071019;font-size:17px;font-weight:1000}.station:nth-child(even) .station-logo{background:linear-gradient(140deg,#ffdb58,#ff7957)}.station:nth-child(3n) .station-logo{background:linear-gradient(140deg,#c96cff,#ff69a6)}.station-name{font-size:21px;font-weight:900;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.station-meta{color:var(--muted);font-size:14px;margin-top:5px;display:block}.station-play{width:44px;height:44px;border:2px solid #eef6ff;border-radius:50%;display:grid;place-items:center;font-weight:900}.playing .station-play{background:var(--cyan);border-color:var(--cyan);color:#061019}
-.player{position:fixed;z-index:30;left:50%;bottom:62px;transform:translateX(-50%);width:min(560px,100%);padding:9px 12px 10px;background:#0e141ef7;backdrop-filter:blur(17px);border-top:1px solid #354257}.player-top{display:grid;grid-template-columns:1fr 48px 48px;gap:8px;align-items:center}.now{min-width:0}.now b{display:block;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.now small{color:var(--muted)}.circle{width:48px;height:48px;border-radius:50%;border:0;background:white;color:#071019;font-size:20px;font-weight:900}.fav{background:#252f3e;color:white;border:1px solid #455268}.fav.on{color:var(--yellow);background:#3c2f12}.volume-row{display:grid;grid-template-columns:25px 1fr 48px;gap:8px;align-items:center;margin-top:8px}.volume-row output{font-size:13px;color:#b9c6d6;text-align:right;font-weight:900}input[type=range]{width:100%;accent-color:var(--cyan)}.duckmsg{display:none;color:#82ffad;font-size:12px;font-weight:900;margin-top:5px}.duckmsg.show{display:block}
-nav{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,100%);height:62px;padding-bottom:env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(4,1fr);background:#070a10;border-top:1px solid var(--line)}nav button{border:0;background:transparent;color:#748196;font-size:10px;font-weight:900}nav button span{display:block;font-size:21px}nav .active{color:var(--cyan)}
-.page{display:none}.page.active{display:block}.settings{padding:11px 12px 210px;min-height:100vh}.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:14px;margin-bottom:10px}.card h3{margin:0 0 6px}.card p{margin:0 0 11px;color:var(--muted);font-size:14px;line-height:1.35}.row{display:flex;align-items:center;gap:10px}.row strong{flex:1}.switch{width:56px;height:32px;border:0;border-radius:99px;background:#354050;padding:3px}.switch i{display:block;width:26px;height:26px;background:white;border-radius:50%;transition:.2s}.switch.on{background:#24c770}.switch.on i{transform:translateX(24px)}.correction{display:grid;grid-template-columns:1fr 42px 42px 54px;gap:7px;align-items:center;padding:9px 0;border-top:1px solid #293447}.correction b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.correction button{height:38px;border:1px solid #425066;background:#202a39;color:white;border-radius:11px;font-weight:900}.correction output{text-align:right;color:#84ddff;font-size:13px;font-weight:900}
-.modal{display:none;position:fixed;inset:0;z-index:90;background:#000c;align-items:flex-end;justify-content:center}.modal.open{display:flex}.sheet{width:min(560px,100%);max-height:88vh;overflow:auto;background:#141b27;border:1px solid #354257;border-radius:24px 24px 0 0;padding:17px 14px calc(18px + env(safe-area-inset-bottom))}.sheet h2{margin:0 0 5px}.sheet p{margin:0 0 12px;color:var(--muted)}.drive-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.drive-grid button{min-height:78px;border:1px solid var(--line);border-radius:17px;background:#202a39;color:white;font-size:17px;font-weight:900}.close{width:100%;height:50px;margin-top:12px;border:0;border-radius:15px;background:#344050;color:white;font-weight:900}.note{margin:10px 12px 0;padding:11px 13px;background:#111923;border:1px solid #28384c;border-radius:14px;color:#9fadc0;font-size:12px;line-height:1.4}
-
-/* Version 4 */
-.app{padding-bottom:170px}.brand small{display:block;margin-top:3px;color:#8ea0b5;font-weight:800}.v4player{bottom:0;min-height:154px;padding:16px 18px calc(16px + env(safe-area-inset-bottom));border-top:1px solid #3a485e}.v4now{display:grid;grid-template-columns:1fr 66px;gap:14px;align-items:center}.v4text{min-width:0}.v4text>b{display:block;font-size:23px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4artist{font-size:17px;font-weight:850;color:#fff;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4title{font-size:15px;color:#b8c4d3;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.v4text small{display:block;color:#67ee99;font-size:13px;font-weight:900;margin-top:9px}.v4play{width:66px;height:66px;font-size:25px}.titleBlockRemoved{display:none!important}.settings{display:none!important}.station{min-height:84px}.note{margin-bottom:16px}
+:root{--bg:#070a10;--panel:#111824;--panel2:#172231;--line:#2b394d;--text:#f7f9fc;--muted:#91a0b3;--cyan:#2dc8ff;--green:#5af095;--player:166px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{min-height:100vh;overscroll-behavior:none}button,input{font:inherit}button{touch-action:manipulation}
+.app{max-width:560px;min-height:100vh;margin:auto;padding-bottom:calc(var(--player) + env(safe-area-inset-bottom));background:linear-gradient(180deg,#0c111a,#070a10 44%)}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:11px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:#080c13f2;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{width:44px;height:44px;border-radius:14px;background:conic-gradient(#f44,#fd5,#5e8,#38f,#b5f,#f44);display:grid;place-items:center;box-shadow:0 0 20px #2dc8ff22}.logo:after{content:'▶';width:30px;height:30px;border-radius:10px;background:#080b11;display:grid;place-items:center;font-size:14px}
+.brand{min-width:0}.brand b{display:block;font-size:19px;line-height:1.05}.brand small{display:block;margin-top:4px;color:#91a4bb;font-size:12px;font-weight:800}.live-pill{margin-left:auto;border:1px solid #2b7650;background:#123822;color:#79ffad;padding:7px 9px;border-radius:99px;font-size:11px;font-weight:900}
+.controls{padding:11px 12px 8px;display:grid;grid-template-columns:1fr auto;gap:9px}.search{height:48px;border:1px solid var(--line);border-radius:15px;background:#111823;color:white;padding:0 15px;font-size:17px;outline:none}.count{min-width:68px;border:1px solid var(--line);border-radius:15px;background:var(--panel);display:grid;place-items:center;color:#9fb0c4;font-size:12px;font-weight:900}
+.list{padding:0 11px}.station{width:100%;min-height:84px;margin-bottom:9px;padding:9px 10px;display:grid;grid-template-columns:54px 1fr 46px;gap:12px;align-items:center;text-align:left;color:white;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#17202d,#0f151e);box-shadow:0 8px 22px #0004}.station:active{transform:scale(.985)}.station.playing{border-color:var(--cyan);box-shadow:0 0 0 2px #28c8ff22,0 8px 22px #0005}
+.station-logo{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(140deg,#27c8ff,#57e990);color:#071019;font-size:15px;font-weight:1000}.station:nth-child(even) .station-logo{background:linear-gradient(140deg,#ffdb58,#ff7957)}.station:nth-child(3n) .station-logo{background:linear-gradient(140deg,#c96cff,#ff69a6)}
+.station-copy{min-width:0}.station-copy b{display:block;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.station-copy small{display:block;color:var(--green);font-size:13px;font-weight:850;margin-top:5px}.station-action{width:44px;height:44px;border:2px solid #eef6ff;border-radius:50%;display:grid;place-items:center;font-weight:900}.playing .station-action{background:var(--cyan);border-color:var(--cyan);color:#061019}
+.empty{padding:35px 20px;text-align:center;color:var(--muted)}
+.player{position:fixed;z-index:40;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,100%);min-height:var(--player);padding:17px 18px calc(16px + env(safe-area-inset-bottom));background:#0d141ef8;backdrop-filter:blur(18px);border-top:1px solid #3a485e;box-shadow:0 -12px 30px #0008}
+.player-grid{display:grid;grid-template-columns:1fr 68px;gap:14px;align-items:center}.player-text{min-width:0}.player-text>strong{display:block;font-size:23px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.artist{font-size:17px;font-weight:850;margin-top:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.title{font-size:15px;color:#bec9d6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.state{display:block;margin-top:10px;color:var(--green);font-size:13px;font-weight:900}.play-main{width:68px;height:68px;border:0;border-radius:50%;background:#fff;color:#071019;font-size:27px;font-weight:900}
+.notice{padding:0 13px 14px;color:#728296;font-size:11px;line-height:1.35}.hidden{display:none!important}
 </style>
 </head>
-<body><audio id="audioPlayer" preload="none" playsinline></audio>
+<body>
+<audio id="audio" preload="none" playsinline></audio>
 <div class="app">
-<header><div class="logo"></div><div class="brand"><b>Balkan Drive Radio</b><small>Version 4.0 · Ein Tipp, sofort hören</small></div><div class="status">🚘 FAHRMODUS</div></header>
-
-<section id="radioPage" class="page active">
-<div class="toolbar"><button id="favoriteFilter" class="active">★ Favoriten</button><button id="openDrive">🚗 Große Auswahl</button></div>
-<div class="search-wrap"><input id="search" class="search" placeholder="Sender suchen …"></div>
-<div class="title"><b>MEINE SENDER</b><span id="stationCount">8 Sender</span></div>
-<div id="stationList" class="list">
-<button class="station" data-id="sehara" data-name="Radio Sehara" data-meta="narodna · BiH" data-short="SEH" data-stream="https://sehara.name.ba/;"><span class="station-logo">SEH</span><span><span class="station-name">Radio Sehara</span><span class="station-meta">narodna · BiH</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="cool" data-name="Cool Radio" data-meta="narodna · Srbija" data-short="COOL" data-stream="https://live.coolradio.rs/cool128"><span class="station-logo">COOL</span><span><span class="station-name">Cool Radio</span><span class="station-meta">narodna · Srbija</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="s3" data-name="Radio S3 Južni" data-meta="narodna · Srbija" data-short="S3"><span class="station-logo">S3</span><span><span class="station-name">Radio S3 Južni</span><span class="station-meta">narodna · Srbija</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="jarani" data-name="Radio Jarani" data-meta="narodna · BiH" data-short="JAR"><span class="station-logo">JAR</span><span><span class="station-name">Radio Jarani</span><span class="station-meta">narodna · BiH</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="ok" data-name="Ok Radio" data-meta="narodna · Srbija" data-short="OK" data-stream="https://sslstream.okradio.net/;?type=http"><span class="station-logo">OK</span><span><span class="station-name">Ok Radio</span><span class="station-meta">narodna · Srbija</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="put" data-name="Radio Put Sreće" data-meta="narodna · Slovenija" data-short="PUT"><span class="station-logo">PUT</span><span><span class="station-name">Radio Put Sreće</span><span class="station-meta">narodna · Slovenija</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="extra" data-name="Radio Extra FM" data-meta="narodna, zabavna · Hrvatska" data-short="EX"><span class="station-logo">EX</span><span><span class="station-name">Radio Extra FM</span><span class="station-meta">narodna, zabavna · Hrvatska</span></span><span class="station-play">▶</span></button>
-<button class="station" data-id="ritam" data-name="Radio Ritam Srca" data-meta="narodna · Ex-YU" data-short="RS"><span class="station-logo">RS</span><span><span class="station-name">Radio Ritam Srca</span><span class="station-meta">narodna · Ex-YU</span></span><span class="station-play">▶</span></button>
+<header><div class="logo"></div><div class="brand"><b>Balkan Drive Radio</b><small>Version 5.0 · 16 Sender</small></div><div class="live-pill">● LIVE</div></header>
+<div class="controls"><input id="search" class="search" placeholder="Sender suchen …" autocomplete="off"><div id="count" class="count">16</div></div>
+<div id="list" class="list"><button class="station" data-id="sehara" data-name="Radio Sehara" data-stream="https://sehara.name.ba/;">
+  <span class="station-logo">SEH</span>
+  <span class="station-copy"><b>Radio Sehara</b><small>LIVE · BiH</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="cool" data-name="Cool Radio" data-stream="https://live.coolradio.rs/cool128">
+  <span class="station-logo">COOL</span>
+  <span class="station-copy"><b>Cool Radio</b><small>LIVE · Srbija</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="ok" data-name="OK Radio" data-stream="https://sslstream.okradio.net/;?type=http">
+  <span class="station-logo">OK</span>
+  <span class="station-copy"><b>OK Radio</b><small>LIVE · Srbija</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="extra" data-name="Extra Radio" data-stream="https://uzivo.extraradio.ba/stream">
+  <span class="station-logo">EX</span>
+  <span class="station-copy"><b>Extra Radio</b><small>LIVE · BiH</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="jackfolk" data-name="Jack Folk Radio" data-stream="https://media.radioexs.com/stream/jackfolkradio">
+  <span class="station-logo">JACK</span>
+  <span class="station-copy"><b>Jack Folk Radio</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="balkanmusic" data-name="Radio Balkan Music" data-stream="https://media.radioexs.com/stream/radiobalkanmusic">
+  <span class="station-logo">BM</span>
+  <span class="station-copy"><b>Radio Balkan Music</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="zivoteka" data-name="Radio Zivoteka" data-stream="https://media.radioexs.com/stream/zivoteka">
+  <span class="station-logo">ZIV</span>
+  <span class="station-copy"><b>Radio Zivoteka</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="izvorni" data-name="Izvorni Radio EXS" data-stream="https://media.radioexs.com/stream/izvorniradioexs">
+  <span class="station-logo">IZV</span>
+  <span class="station-copy"><b>Izvorni Radio EXS</b><small>LIVE · Izvorna</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="dzungla" data-name="Radio Dzungla" data-stream="https://cast2.name.ba/proxy/dzungla/stream">
+  <span class="station-logo">DZ</span>
+  <span class="station-copy"><b>Radio Dzungla</b><small>LIVE · BiH</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="dijaspora" data-name="Radio Dijaspora" data-stream="https://stream.radiodijaspora.com/radio/8010/radio.mp3">
+  <span class="station-logo">DIJ</span>
+  <span class="station-copy"><b>Radio Dijaspora</b><small>LIVE · Dijaspora</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="stil" data-name="Stil Radio" data-stream="https://a2.asurahosting.com/listen/stil_radio/stilradio">
+  <span class="station-logo">STIL</span>
+  <span class="station-copy"><b>Stil Radio</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="narodna" data-name="Radio Balkan Narodna" data-stream="https://radiobalkan.live/radio/live/narodna.mp3">
+  <span class="station-logo">NAR</span>
+  <span class="station-copy"><b>Radio Balkan Narodna</b><small>LIVE · Narodna</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="spark" data-name="Spark Radio" data-stream="https://usa21.fastcast4u.com/sparkradio">
+  <span class="station-logo">SPK</span>
+  <span class="station-copy"><b>Spark Radio</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="svidakov" data-name="Svi Dakov" data-stream="https://eu4.fastcast4u.com/proxy/svidakov?mp=/1">
+  <span class="station-logo">SD</span>
+  <span class="station-copy"><b>Svi Dakov</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="studiom2" data-name="Studio M2" data-stream="https://stream.leftor.com/proxy/studiom2/stream">
+  <span class="station-logo">M2</span>
+  <span class="station-copy"><b>Studio M2</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button>
+<button class="station" data-id="bigbalkan" data-name="Big Balkan" data-stream="https://audiotainment-sw.streamabc.net/atsw-bigbalkan-mp3-128-8067682?sABC=6no7190s%230%239np452r18352qp40q654np68123o4r4o%23gjy&aw_0_1st.playerid=twl&amsparams=playerid:twl;skey:1790384399">
+  <span class="station-logo">BIG</span>
+  <span class="station-copy"><b>Big Balkan</b><small>LIVE · Balkan</small></span>
+  <span class="station-action">▶</span>
+</button></div>
+<div class="notice">Nur direkte Streams, keine App-Banner, Popups oder Zwischenseiten. Einzelne Stream-Adressen können sich beim Sender später ändern.</div>
 </div>
-<div class="note">Version 4.0 · Einfacher Player ohne untere Menüleiste. Titel und Interpret erscheinen nur, wenn echte Metadaten verfügbar sind.</div>
-</section>
-
-<section id="settingsPage" class="page settings">
-<div class="card"><h3>Globale Lautstärke</h3><p>Begrenzt die Lautstärke aller Sender innerhalb der App.</p><div class="volume-row"><span>🔈</span><input id="settingsVolume" type="range" min="0" max="100" value="70"><output id="settingsVolumeOut">70 %</output></div></div>
-<div class="card"><div class="row"><div><h3>Starkes Navigation-Ducking</h3><p>Senkt das Radio bei einer Navigationsansage simuliert auf 5 %.</p></div><button id="duckSwitch" class="switch on"><i></i></button></div></div>
-<div class="card"><div class="row"><div><h3>Ein-Klick-Wiedergabe</h3><p>Die gesamte Senderzeile startet den Sender direkt.</p></div><button class="switch on"><i></i></button></div></div>
-<div class="card"><h3>Sender-Lautstärke anpassen</h3><p>Zusätzliche Korrektur pro Sender, damit sehr laute und sehr leise Streams ausgeglichen werden.</p><div id="corrections"></div></div>
-</section>
+<div class="player">
+ <div class="player-grid">
+  <div class="player-text"><strong id="nowName">Noch kein Sender</strong><div id="artist" class="artist"></div><div id="trackTitle" class="title">Sender auswählen</div><small id="state" class="state">BEREIT</small></div>
+  <button id="mainPlay" class="play-main">▶</button>
+ </div>
 </div>
-
-<div class="player v4player">
-  <div class="v4now">
-    <div class="v4text"><b id="nowName">Noch kein Sender</b><div id="trackArtist" class="v4artist"></div><div id="trackTitle" class="v4title">Sender auswählen</div><small id="nowStatus">Bereit</small></div>
-    <button id="playPause" class="circle v4play">▶</button>
-  </div>
-</div>
-<div id="driveModal" class="modal"><div class="sheet"><h2>🚗 Große Senderauswahl</h2><p>Ein Tipp startet den Sender sofort.</p><div id="driveGrid" class="drive-grid"></div><button id="closeDrive" class="close">Schließen</button></div></div>
 <script>
 (function(){
 'use strict';
-var stations=Array.prototype.slice.call(document.querySelectorAll('.station'));
-var audio=document.getElementById('audioPlayer');
-var current=null,playing=false;
-var metaTimer=null;
-var metadataEndpoints={
- sehara:['https://sehara.name.ba/currentsong?sid=1','https://sehara.name.ba/7.html'],
- ok:['https://sslstream.okradio.net/currentsong?sid=1','https://sslstream.okradio.net/7.html']
-};
-function el(id){return document.getElementById(id)}
-function clean(x){return (x||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim()}
-function showFallback(){el('trackArtist').textContent='';el('trackTitle').textContent='';el('nowStatus').textContent=playing?'LIVE · Radio läuft':'Wiedergabe pausiert'}
-function showTrack(raw){raw=clean(raw).replace(/^.*?StreamTitle=['\"]?/i,'').replace(/['\";].*$/,'').trim();if(!raw||raw.length>220||/doctype|html/i.test(raw)){showFallback();return}var parts=raw.split(/\s+-\s+/);if(parts.length>1){el('trackArtist').textContent=parts.shift();el('trackTitle').textContent=parts.join(' - ')}else{el('trackArtist').textContent='';el('trackTitle').textContent=raw}el('nowStatus').textContent='LIVE · Radio läuft';if('mediaSession' in navigator)try{navigator.mediaSession.metadata=new MediaMetadata({artist:el('trackArtist').textContent,title:el('trackTitle').textContent||current.dataset.name,album:current.dataset.name,artwork:[{src:'icon-512.png',sizes:'512x512',type:'image/png'}]})}catch(e){}}
-async function getText(url){var r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(r.status);return r.text()}
-async function refreshMeta(){if(!current||!playing)return;var urls=metadataEndpoints[current.dataset.id]||[];for(var i=0;i<urls.length;i++){var attempts=[urls[i],'https://api.allorigins.win/raw?url='+encodeURIComponent(urls[i])];for(var j=0;j<attempts.length;j++)try{var text=await getText(attempts[j]);text=clean(text);if(text&&text.length<220&&!/doctype|html/i.test(text)){showTrack(text);return}}catch(e){}}showFallback()}
-function startMeta(){clearInterval(metaTimer);refreshMeta();metaTimer=setInterval(refreshMeta,20000)}
-function updateUI(){stations.forEach(function(b){var on=b===current&&playing;b.classList.toggle('playing',on);b.querySelector('.station-play').textContent=on?'Ⅱ':'▶'});el('nowName').textContent=current?current.dataset.name:'Noch kein Sender';el('playPause').textContent=playing?'Ⅱ':'▶';if(!playing)showFallback();renderDrive()}
-function selectStation(btn){if(current===btn){audio.paused?audio.play().catch(streamFail):audio.pause();return}current=btn;el('nowName').textContent=btn.dataset.name;el('trackArtist').textContent='';el('trackTitle').textContent='Stream wird geladen …';el('nowStatus').textContent='VERBINDUNG';if(!btn.dataset.stream){audio.pause();audio.removeAttribute('src');playing=false;updateUI();el('trackTitle').textContent='Stream noch nicht verfügbar';el('nowStatus').textContent='NICHT VERFÜGBAR';return}audio.src=btn.dataset.stream;audio.play().catch(streamFail);updateUI()}
-function streamFail(){playing=false;updateUI();el('trackTitle').textContent='Stream konnte nicht gestartet werden';el('nowStatus').textContent='FEHLER'}
-stations.forEach(function(b){b.onclick=function(){selectStation(b)}});
-audio.onplaying=function(){playing=true;updateUI();showFallback();startMeta()};audio.onpause=function(){playing=false;updateUI()};audio.onwaiting=function(){el('trackTitle').textContent='Stream wird geladen …';el('nowStatus').textContent='VERBINDUNG'};audio.onerror=streamFail;
-el('playPause').onclick=function(){if(!current)selectStation(stations[0]);else audio.paused?audio.play().catch(streamFail):audio.pause()};
-var search=el('search');search.oninput=function(){var q=this.value.toLowerCase(),n=0;stations.forEach(function(b){var show=b.dataset.name.toLowerCase().indexOf(q)>-1;b.style.display=show?'grid':'none';if(show)n++});el('stationCount').textContent=n+' Sender'};
-// Keep top Favoriten as a harmless filter label for now; display all stations.
-var fav=el('favoriteFilter');if(fav){fav.textContent='★ Meine Sender';fav.onclick=function(){search.focus()}}
-function renderDrive(){var g=el('driveGrid');if(!g)return;g.innerHTML='';stations.forEach(function(b){var x=document.createElement('button');x.textContent=(b===current&&playing?'Ⅱ ':'▶ ')+b.dataset.name;x.onclick=function(){selectStation(b);el('driveModal').classList.remove('open')};g.appendChild(x)})}
-el('openDrive').onclick=function(){renderDrive();el('driveModal').classList.add('open')};el('closeDrive').onclick=function(){el('driveModal').classList.remove('open')};
-if('mediaSession'in navigator){try{navigator.mediaSession.setActionHandler('play',function(){audio.play()});navigator.mediaSession.setActionHandler('pause',function(){audio.pause()})}catch(e){}}
-if('serviceWorker'in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js')});
-renderDrive();updateUI();
+const catalogue=[{"id": "sehara", "name": "Radio Sehara", "stream": "https://sehara.name.ba/;"}, {"id": "cool", "name": "Cool Radio", "stream": "https://live.coolradio.rs/cool128"}, {"id": "ok", "name": "OK Radio", "stream": "https://sslstream.okradio.net/;?type=http"}, {"id": "extra", "name": "Extra Radio", "stream": "https://uzivo.extraradio.ba/stream"}, {"id": "jackfolk", "name": "Jack Folk Radio", "stream": "https://media.radioexs.com/stream/jackfolkradio"}, {"id": "balkanmusic", "name": "Radio Balkan Music", "stream": "https://media.radioexs.com/stream/radiobalkanmusic"}, {"id": "zivoteka", "name": "Radio Zivoteka", "stream": "https://media.radioexs.com/stream/zivoteka"}, {"id": "izvorni", "name": "Izvorni Radio EXS", "stream": "https://media.radioexs.com/stream/izvorniradioexs"}, {"id": "dzungla", "name": "Radio Dzungla", "stream": "https://cast2.name.ba/proxy/dzungla/stream"}, {"id": "dijaspora", "name": "Radio Dijaspora", "stream": "https://stream.radiodijaspora.com/radio/8010/radio.mp3"}, {"id": "stil", "name": "Stil Radio", "stream": "https://a2.asurahosting.com/listen/stil_radio/stilradio"}, {"id": "narodna", "name": "Radio Balkan Narodna", "stream": "https://radiobalkan.live/radio/live/narodna.mp3"}, {"id": "spark", "name": "Spark Radio", "stream": "https://usa21.fastcast4u.com/sparkradio"}, {"id": "svidakov", "name": "Svi Dakov", "stream": "https://eu4.fastcast4u.com/proxy/svidakov?mp=/1"}, {"id": "studiom2", "name": "Studio M2", "stream": "https://stream.leftor.com/proxy/studiom2/stream"}, {"id": "bigbalkan", "name": "Big Balkan", "stream": "https://audiotainment-sw.streamabc.net/atsw-bigbalkan-mp3-128-8067682?sABC=6no7190s%230%239np452r18352qp40q654np68123o4r4o%23gjy&aw_0_1st.playerid=twl&amsparams=playerid:twl;skey:1790384399"}];
+const audio=document.getElementById('audio');
+const buttons=[...document.querySelectorAll('.station')];
+const byId=Object.fromEntries(buttons.map(b=>[b.dataset.id,b]));
+let current=null,playing=false,requestNumber=0;
+const $=id=>document.getElementById(id);
+function text(id,value){$(id).textContent=value}
+function fallback(state='LIVE · Radio läuft'){text('artist','');text('trackTitle','');text('state',state)}
+function setTrack(raw){
+ raw=(raw||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
+ if(!raw||raw.length>220||/doctype|html/i.test(raw)){fallback();return}
+ let p=raw.split(/\s+-\s+/);text('artist',p.length>1?p.shift():'');text('trackTitle',p.length?p.join(' - '):raw);text('state','LIVE · Radio läuft');
+ if('mediaSession' in navigator)try{navigator.mediaSession.metadata=new MediaMetadata({artist:$('artist').textContent,title:$('trackTitle').textContent||current.dataset.name,album:current.dataset.name,artwork:[{src:'icon-512.png',sizes:'512x512',type:'image/png'}]})}catch(e){}
+}
+async function metadata(){
+ if(!current||!playing)return;
+ const id=current.dataset.id;
+ const endpoints=id==='sehara'?['https://sehara.name.ba/currentsong?sid=1']:id==='ok'?['https://sslstream.okradio.net/currentsong?sid=1']:[];
+ for(const url of endpoints){try{const r=await fetch(url,{cache:'no-store'});if(r.ok){const v=(await r.text()).trim();if(v){setTrack(v);return}}}catch(e){}}
+ fallback();
+}
+function update(){buttons.forEach(b=>{const on=b===current&&playing;b.classList.toggle('playing',on);b.querySelector('.station-action').textContent=on?'Ⅱ':'▶'});text('nowName',current?current.dataset.name:'Noch kein Sender');text('mainPlay',playing?'Ⅱ':'▶')}
+function fail(){playing=false;update();text('artist','');text('trackTitle','Stream konnte nicht gestartet werden');text('state','FEHLER')}
+function choose(btn){
+ if(current===btn){audio.paused?audio.play().catch(fail):audio.pause();return}
+ current=btn;requestNumber++;text('nowName',btn.dataset.name);text('artist','');text('trackTitle','Stream wird geladen …');text('state','VERBINDUNG');audio.src=btn.dataset.stream;audio.play().catch(fail);update();
+}
+buttons.forEach(b=>b.addEventListener('click',()=>choose(b)));
+audio.addEventListener('playing',()=>{playing=true;update();fallback();metadata()});audio.addEventListener('pause',()=>{playing=false;update();if(current)text('state','PAUSIERT')});audio.addEventListener('waiting',()=>{text('trackTitle','Stream wird geladen …');text('state','VERBINDUNG')});audio.addEventListener('error',fail);
+$('mainPlay').onclick=()=>{if(!current)choose(buttons[0]);else audio.paused?audio.play().catch(fail):audio.pause()};
+$('search').oninput=function(){const q=this.value.trim().toLowerCase();let n=0;buttons.forEach(b=>{const show=b.dataset.name.toLowerCase().includes(q);b.classList.toggle('hidden',!show);if(show)n++});text('count',n)};
+if('mediaSession' in navigator)try{navigator.mediaSession.setActionHandler('play',()=>audio.play());navigator.mediaSession.setActionHandler('pause',()=>audio.pause())}catch(e){}
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+update();
 })();
 </script>
 </body></html>
