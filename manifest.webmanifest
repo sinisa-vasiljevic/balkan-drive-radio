@@ -1,25 +1,22 @@
 {
+  "id": "/balkan-drive-radio/",
   "name": "Balkan Drive Radio",
   "short_name": "Balkan Radio",
-  "description": "Werbefreier persönlicher Balkan-Radio-Player",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/balkan-drive-radio/?source=pwa",
+  "scope": "/balkan-drive-radio/",
   "display": "standalone",
   "background_color": "#070a10",
   "theme_color": "#070a10",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/balkan-drive-radio/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "/balkan-drive-radio/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }

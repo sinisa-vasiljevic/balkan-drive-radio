@@ -1,3 +1,1 @@
-Balkan Drive Radio Version 5.1
-
-Neues rotes Play-Icon integriert. Alle Dateien ins Hauptverzeichnis des GitHub-Pages-Repositorys hochladen und vorhandene Dateien ersetzen.
+Version 5.2 mit festem Scope /balkan-drive-radio/. Alle Dateien im Repository ersetzen. Danach die alte PWA löschen und neu installieren.
