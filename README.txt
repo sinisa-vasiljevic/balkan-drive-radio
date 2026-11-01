@@ -1,8 +1,6 @@
-Balkan Drive Radio Version 5.3 - Korrekturpaket 1
+Balkan Drive Radio V5.4
 
-Korrekturen:
-- Der zuletzt gewählte Sender wird dauerhaft gespeichert und beim nächsten Start wieder angezeigt.
-- Beim Druck auf Play wird der gespeicherte Stream vollständig neu initialisiert.
-- Ein fehlgeschlagener Startversuch wird einmal automatisch wiederholt.
-- Versionsnummer und Senderanzahl werden sauber in getrennten Zeilen angezeigt.
-- Service-Worker-Cache wurde aktualisiert, damit die neue Version geladen wird.
+- Version und Senderanzahl stehen in getrennten Zeilen.
+- Sender lassen sich über ≡ per Drag-and-drop sortieren.
+- Die Reihenfolge wird lokal auf dem Gerät gespeichert und beim nächsten Start wiederhergestellt.
+- Wiedergabe, Suche und Senderwechsel bleiben erhalten.
