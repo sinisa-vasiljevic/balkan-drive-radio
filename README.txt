@@ -1,10 +1,9 @@
-Balkan Drive Radio V5.7
+Balkan Drive Radio V5.8
 
 ÄNDERUNGEN
-- Media Session für die System-Mediensteuerung ergänzt.
-- Play aus der Systemsteuerung startet den aktuell bzw. zuletzt ausgewählten Sender über die bestehende Wiedergabelogik.
-- Pause aus der Systemsteuerung pausiert das bestehende Audio-Element.
-- Sendername, Balkan Drive Radio und die vorhandenen App-Icons werden als Media-Metadaten bereitgestellt.
-- Der Media-Playback-Status wird bei tatsächlicher Wiedergabe/Pause synchronisiert.
-- Senderliste mit 18 Sendern, Suche, Streams und die normale Wiedergabelogik aus V5.6 wurden beibehalten.
-- Offline-Cache auf bdr-v5-7-media-session aktualisiert.
+- Play nach einer Pause baut jetzt grundsätzlich eine frische Verbindung zum aktuell ausgewählten Live-Stream auf.
+- Das gilt sowohl für den Play-Button in der App als auch für Media-Session-Play vom iPhone-Sperrbildschirm.
+- Vor der Neuverbindung wird die alte Audioquelle pausiert, entfernt und das Audio-Element zurückgesetzt; danach wird dieselbe Stream-URL neu geladen und gestartet.
+- Media-Session-Metadaten sowie playing/paused-Synchronisierung aus V5.7 bleiben erhalten.
+- Senderliste mit 18 Sendern, Suche und Stream-Adressen bleiben unverändert.
+- Offline-Cache auf bdr-v5-8-reconnect aktualisiert.
