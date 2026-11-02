@@ -1,10 +1,10 @@
-Balkan Drive Radio V5.6
+Balkan Drive Radio V5.7
 
 ÄNDERUNGEN
-- Drag-and-drop vollständig entfernt.
-- Alle ≡-Griffe, Touch-/Drag-Logik und gespeicherte Sortierreihenfolgen entfernt.
-- Senderkarten sind wieder normale Abspielbuttons in fester Reihenfolge.
-- Radio Srce Krajine (KRAJ) und OK Radio Prelo (PRELO) ergänzt.
-- Insgesamt 18 Sender.
-- Suche, Wiedergabe und Speicherung des zuletzt gewählten Senders bleiben erhalten.
-- Offline-Cache auf bdr-v5-6-stable aktualisiert.
+- Media Session für die System-Mediensteuerung ergänzt.
+- Play aus der Systemsteuerung startet den aktuell bzw. zuletzt ausgewählten Sender über die bestehende Wiedergabelogik.
+- Pause aus der Systemsteuerung pausiert das bestehende Audio-Element.
+- Sendername, Balkan Drive Radio und die vorhandenen App-Icons werden als Media-Metadaten bereitgestellt.
+- Der Media-Playback-Status wird bei tatsächlicher Wiedergabe/Pause synchronisiert.
+- Senderliste mit 18 Sendern, Suche, Streams und die normale Wiedergabelogik aus V5.6 wurden beibehalten.
+- Offline-Cache auf bdr-v5-7-media-session aktualisiert.
